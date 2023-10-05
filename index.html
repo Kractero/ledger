@@ -38,7 +38,7 @@
           "S2 Common", "S2 Uncommon", "S2 Rare", "S2 Ultra-Rare", "S2 Epic", "S2 Legendary",
           "S3 Common", "S3 Uncommon", "S3 Rare", "S3 Ultra-Rare", "S3 Epic", "S3 Legendary",
         ];
-        let indexStr = ``;
+        let indexStr = `<th>#</th>`;
         validHeaders.forEach((header) => indexStr += `<th class='sort' data-order='none'>${header}</th>`);
         hideableHeaders.forEach((header) => indexStr += `<th class='sort hideable hide' data-order='none'>${header}</th>`);
         indexStr += `</tr>`;
@@ -51,7 +51,7 @@
         table.appendChild(index);
         json.forEach((deck) => {
           const row = document.createElement("tr");
-          let rowStr = `<tr>`;
+          let rowStr = `<tr><td></td>`;
           validHeaders.forEach((key) => {
             switch (key) {
               case "Deck Value" || "Bank":

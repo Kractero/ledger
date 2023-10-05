@@ -73,10 +73,16 @@ table {
   font-size: 14px;
   text-align: left;
   border-collapse: collapse;
+  counter-reset: serial-number;
 }
 
 table thead tr {
   border-bottom: 1px solid;
+}
+
+table td:first-child:before {
+    counter-increment: serial-number;
+    content: counter(serial-number);
 }
 
 table th {
