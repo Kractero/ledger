@@ -55,13 +55,13 @@
           validHeaders.forEach((key) => {
             switch (key) {
               case "Deck Value" || "Bank":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/value_deck=1'>${deck[key]}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/value_deck=1'>${deck[key]}</a></td>`;
                 break;
               case "Card Count":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}'>${deck[key]}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}'>${deck[key]}</a></td>`;
                 break;
               case "Nation":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck'>${deck[key]}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key]}</a></td>`;
                 break;
               default:
                 rowStr += `<td>${deck[key]}</td>`;
@@ -70,12 +70,12 @@
           hideableHeaders.forEach((key) => {
             if (Object.keys(deck).includes(key)) {
               if (key.includes("S") && !key.includes(" ")) {
-                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck/?filter=${key.replace("S", "season-")}'>${deck[key]}</a></td class="hideable hide">`;
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/?filter=${key.replace("S", "season-")}'>${deck[key]}</a></td class="hideable hide">`;
               } else if (key.includes(" ")) {
                 let adjKey = key.split(" ");
-                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck/?filter=${adjKey[0].replace("S","season-")}+${adjKey[1].toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/?filter=${adjKey[0].replace("S","season-")}+${adjKey[1].toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
               } else if (!key.includes("S")) {
-                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck/?filter=${key.toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/?filter=${key.toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
               }
             } else rowStr += `<td class="hideable hide">0</td>`;
           });
@@ -106,6 +106,14 @@
             col.setAttribute("data-order", newOrder);
           });
         });
+
+        //  document.querySelectorAll("td").forEach(td => td.addEventListener('mouseover', (e) => {
+        //       e.currentTarget.parentNode.firstChild.style.backgroundColor = "beige";
+        //  }));
+
+        //  document.querySelectorAll("td").forEach(td => td.addEventListener('mouseout', (e) => {
+        //   e.currentTarget.parentNode.firstChild.style.backgroundColor = "";
+        //  }));
       }
       fillTable();
     </script>

@@ -2,8 +2,10 @@
 
 :root {
   --background: white;
-  --main-text: #6b7280;
-  --link-text: #8cb4ff;
+  --main-text: rgb(12, 12, 12);
+  --link-text: #3a64b3;
+  --table-header: white;
+  --table-header-bg: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +14,8 @@
     --main-text: #c2c3c7;
     --main-text: #c2c3c7;
     --link-text: #bbd2fc;
+    --table-header: black;
+    --table-header-bg: white;
   }
 }
 
@@ -79,8 +83,8 @@ table th {
   height: 48px;
   padding: 1rem;
   font-weight: 500;
-  color: white;
-  background: #000;
+  color: var(--table-header);
+  background: var(--table-header-bg);
 }
 
 table td {
@@ -106,6 +110,7 @@ input {
   border-radius: 0.25rem;
   padding: 0.5rem;
   text-align: center;
+  border: black solid 1px;
 }
 
 form button {
