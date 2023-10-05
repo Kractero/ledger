@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>Gold Ledger</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <form>
+      <input value="" id="date" placeholder="YYYY-MM-DD" />
+      <button type="submit">Search Old Data</button>
+    </form>
+    <div class="content">
+      <h2></h2>
+      <button id="toggleHeadersButton">Toggle Additional Headers</button>
+      <table></table>
+    </div>
+    <script>
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        fillTable(document.getElementById("date").value);
+      });
+      async function fillTable(date) {
+        let fetchDate = date;
+        if (!fetchDate) {
+          fetchDate = new Date();
+          fetchDate = fetchDate.toISOString().slice(0, 10);
+        }
+        const filePath = `https://raw.githubusercontent.com/Kractero/leaderboard/main/data/${fetchDate}.json`;
+        const data = await fetch(filePath);
+        const json = await data.json();
+        const table = document.querySelector("table");
+        table.innerHTML = "";
+        const index = document.createElement("tr");
+        const validHeaders = ["Nation", "Deck Value", "Junk Value", "Bank", "Card Count", "Deck Capacity"];
+        const hideableHeaders = [ "Common", "Uncommon", "Rare", "Ultra-Rare", "Epic", "Legendary", "S1", "S2", "S3",
+          "S1 Common", "S1 Uncommon", "S1 Rare", "S1 Ultra-Rare", "S1 Epic", "S1 Legendary",
+          "S2 Common", "S2 Uncommon", "S2 Rare", "S2 Ultra-Rare", "S2 Epic", "S2 Legendary",
+          "S3 Common", "S3 Uncommon", "S3 Rare", "S3 Ultra-Rare", "S3 Epic", "S3 Legendary",
+        ];
+        let indexStr = ``;
+        validHeaders.forEach((header) => indexStr += `<th class='sort' data-order='none'>${header}</th>`);
+        hideableHeaders.forEach((header) => indexStr += `<th class='sort hideable hide' data-order='none'>${header}</th>`);
+        indexStr += `</tr>`;
+        index.innerHTML = indexStr;
+        const toggleHeadersButton = document.getElementById("toggleHeadersButton");
+        let additionalHeadersVisible = false;
+        toggleHeadersButton.addEventListener("click", () => {
+          document.querySelectorAll(".hideable").forEach((el) => el.classList.toggle("hide"));
+        });
+        table.appendChild(index);
+        json.forEach((deck) => {
+          const row = document.createElement("tr");
+          let rowStr = `<tr>`;
+          validHeaders.forEach((key) => {
+            switch (key) {
+              case "Deck Value" || "Bank":
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/value_deck=1'>${deck[key]}</a></td>`;
+                break;
+              case "Card Count":
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}'>${deck[key]}</a></td>`;
+                break;
+              case "Nation":
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck'>${deck[key]}</a></td>`;
+                break;
+              default:
+                rowStr += `<td>${deck[key]}</td>`;
+            }
+          });
+          hideableHeaders.forEach((key) => {
+            if (Object.keys(deck).includes(key)) {
+              if (key.includes("S") && !key.includes(" ")) {
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck/?filter=${key.replace("S", "season-")}'>${deck[key]}</a></td class="hideable hide">`;
+              } else if (key.includes(" ")) {
+                let adjKey = key.split(" ");
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck/?filter=${adjKey[0].replace("S","season-")}+${adjKey[1].toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
+              } else if (!key.includes("S")) {
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.nation}/page=deck/?filter=${key.toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
+              }
+            } else rowStr += `<td class="hideable hide">0</td>`;
+          });
+          row.innerHTML = rowStr;
+          table.appendChild(row);
+          document.querySelector("h2").textContent = fetchDate;
+        });
+
+        const sortableColumns = document.querySelectorAll(".sort");
+        sortableColumns.forEach((col) => {
+          col.addEventListener("click", () => {
+            const table = document.querySelector("table");
+            const columnIndex = Array.from(col.parentNode.cells).indexOf(col);
+            const rows = Array.from(table.rows).slice(1);
+            const currentOrder = col.getAttribute("data-order");
+            const newOrder = currentOrder === "asc" ? "desc" : "asc";
+            rows.sort((a, b) => {
+              const aValue = parseFloat(a.cells[columnIndex].innerText);
+              const bValue = parseFloat(b.cells[columnIndex].innerText);
+              if (currentOrder === "asc" && currentOrder !== "none") {
+                return aValue > bValue ? 1 : aValue === bValue ? 0 : -1;
+              } else {
+                return aValue > bValue ? -1 : aValue === bValue ? 0 : 1;
+              }
+              return aValue > bValue ? 1 : aValue === bValue ? 0 : -1;
+            });
+            table.append(...rows);
+            col.setAttribute("data-order", newOrder);
+          });
+        });
+      }
+      fillTable();
+    </script>
+  </body>
+</html>
