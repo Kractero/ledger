@@ -7,7 +7,7 @@ function sleep() {
 }
 
 const top100names = []
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 5; i++) {
     let start = 1 + i * 20;
     const response = await fetch(
         `https://www.nationstates.net/cgi-bin/api.cgi?q=censusranks&scale=86&start=${start}`,
