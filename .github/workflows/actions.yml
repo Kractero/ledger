@@ -2,7 +2,7 @@ name: generate new data
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 7 * * *'
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "Actions"
           git add "data/${{ env.NOW }}.json"
-          git commit -m "Update new test JSON"
+          git commit -m "${{ env.NOW }} leaderboard"
           git push
           
       - name: push changes
