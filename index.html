@@ -24,10 +24,17 @@
         let fetchDate = date;
         if (!fetchDate) {
           fetchDate = new Date();
+          fetchDate.setDate(fetchDate.getDate());
           fetchDate = fetchDate.toISOString().slice(0, 10);
         }
         const filePath = `https://raw.githubusercontent.com/Kractero/leaderboard/main/data/${fetchDate}.json`;
         const data = await fetch(filePath);
+        if (data.status === 404) {
+          const previousDate = new Date();
+          previousDate.setDate(previousDate.getDate() - 1);
+          await fillTable(previousDate.toISOString().slice(0, 10)); // Wait for the recursive call to complete
+          return;
+        }
         const json = await data.json();
         const table = document.querySelector("table");
         table.innerHTML = "";
