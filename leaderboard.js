@@ -1,4 +1,4 @@
-
+import { writeFileSync } from "fs";
 import { XMLParser } from 'fast-xml-parser';
 
 const parser = new XMLParser({ ignoreAttributes: false });
@@ -108,4 +108,6 @@ for (let i = 0; i < top100names.length; i++) {
 
 const top100DataJson = JSON.stringify(top100Data, null, 2);
 
-console.log(top100DataJson);
+const currentDate = new Date();
+const date = currentDate.toISOString().slice(0, 10);
+writeFileSync(`data/${date}.json`, top100DataJson);
