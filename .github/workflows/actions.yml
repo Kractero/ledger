@@ -2,7 +2,9 @@ name: generate new data
 
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
+
+  workflow_dispatch:
 
 jobs:
   build:
@@ -28,14 +30,15 @@ jobs:
           SOME_SECRET: ${{ secrets.TOKEN }}
         run: |
           today=$(date +"%Y-%m-%d")
-          node leaderboard.js > "data/${{ env.NOW }}.json"
+          node leaderboard.js
+          node legendaries.js
           
       - name: Commit and Push JSON
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "Actions"
-          git add "data/${{ env.NOW }}.json"
-          git commit -m "${{ env.NOW }} leaderboard"
+          git add "*.json"
+          git commit -m "(${{ env.NOW }}) Update"
           git push
           
       - name: push changes
