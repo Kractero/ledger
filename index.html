@@ -27,7 +27,7 @@
           fetchDate.setDate(fetchDate.getDate());
           fetchDate = fetchDate.toISOString().slice(0, 10);
         }
-        const filePath = `https://raw.githubusercontent.com/Kractero/leaderboard/main/data/${fetchDate}.json`;
+        const filePath = `https://raw.githubusercontent.com/Kractero/ledger/main/data/${fetchDate}.json`;
         const data = await fetch(filePath);
         if (data.status === 404) {
           const previousDate = new Date();
