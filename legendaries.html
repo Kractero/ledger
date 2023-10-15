@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Legendary Status</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="content">
+      <h2>Legendaries</h2>
+      <table class="legendaries-table"></table>
+    </div>
+    <script>
+      async function fillTable() {
+        const activityRes = await fetch(
+          "https://raw.githubusercontent.com/Kractero/ledger/main/Legendaries.json"
+        );
+        let json = await activityRes.json();
+        json.sort((a, b) => {
+          if (b.exists && !a.exists) {
+            return -1;
+          } else if (!b.exists && a.exists) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        const table = document.querySelector("table");
+        table.innerHTML = "";
+        const index = document.createElement("tr");
+        const validHeaders = ["Name", "S1", "S2", "S3", "CTE"];
+        let indexStr = `<th>#</th>`;
+        validHeaders.forEach(
+          (header, i) =>
+            (indexStr += `<th class='${
+              i > 0 ? "season-head" : ""
+            } sort' data-sort="$" data-order='none'>${header}</th>`)
+        );
+        indexStr += `</tr>`;
+        index.innerHTML = indexStr;
+        table.appendChild(index);
+        json.forEach((nation) => {
+          const row = document.createElement("tr");
+          let rowStr = `<tr><td></td>`;
+          rowStr += `<tr><td><a target='_blank' href='https://www.nationstates.net/nation=${nation.name}/'>${nation.name}</a></td></tr>`;
+          for (let season = 1; season <= 3; season++) {
+            if (nation[`S${season}`] === true) {
+              rowStr += `<tr><td class="season-cell"><a target='_blank' href='https://www.nationstates.net/page=deck/card=${nation.id}/season=${season}'>&#9989</a></td></tr>`;
+            } else {
+              rowStr += `<tr><td class="season-cell">&#10060</td></tr>`;
+            }
+          }
+          rowStr += `<tr><td class="season-cell"><a target='_blank' href='https://www.nationstates.net/page=boneyard?nation=${
+            nation.name
+          }'>${nation.exists === true ? "&#9989" : "&#10060"}</a></td></tr>`;
+          row.innerHTML = rowStr;
+          table.appendChild(row);
+        });
+        const sortableColumns = document.querySelectorAll(".sort");
+        sortableColumns.forEach((col) => {
+          col.addEventListener("click", () => {
+            const table = document.querySelector("table");
+            const columnIndex = Array.from(col.parentNode.cells).indexOf(col);
+            const rows = Array.from(table.rows).slice(1);
+            const currentOrder = col.getAttribute("data-order");
+            const newOrder = currentOrder === "asc" ? "desc" : "asc";
+            rows.sort((a, b) => {
+              const aValue = a.cells[columnIndex].innerText;
+              const bValue = b.cells[columnIndex].innerText;
+
+              const aExists = a.cells[4].innerText === "✓";
+              const bExists = b.cells[4].innerText === "✓";
+
+              if (bExists && !aExists) {
+                return -1;
+              } else if (!bExists && aExists) {
+                return 1;
+              } else {
+                if (currentOrder === "asc") {
+                  return aValue > bValue ? -1 : aValue === bValue ? 0 : 1;
+                } else {
+                  return aValue > bValue ? 1 : aValue === bValue ? 0 : -1;
+                }
+              }
+            });
+            table.append(...rows);
+            col.setAttribute("data-order", newOrder);
+          });
+        });
+      }
+      fillTable();
+    </script>
+  </body>
+</html>

@@ -81,8 +81,8 @@ table thead tr {
 }
 
 table td:first-child:before {
-    counter-increment: serial-number;
-    content: counter(serial-number);
+  counter-increment: serial-number;
+  content: counter(serial-number);
 }
 
 table th {
@@ -125,4 +125,22 @@ form button {
   border-radius: 0.5rem;
   border: none;
   transition: background-color 500ms;
+}
+
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  .season-cell {
+    display: block;
+  }
+  .season-head {
+    display: block;
+    padding: 6px;
+    height: min-content;
+  }
+  tr {
+    border: 1px solid #ccc;
+  }
+  .season-head {
+    border: 1px solid black;
+  }
 }
