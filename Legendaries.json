@@ -1645,7 +1645,7 @@
     "S2": true,
     "S1": false,
     "S3": true,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Pencil Sharpeners 2",
@@ -2509,7 +2509,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Refuge Isle",
