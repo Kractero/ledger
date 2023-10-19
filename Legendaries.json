@@ -389,7 +389,7 @@
     "S1": true,
     "S2": true,
     "S3": true,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Escalan Corps-Star Island",
@@ -2349,7 +2349,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "New Visayan Islands",
