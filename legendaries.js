@@ -20,4 +20,4 @@ legendaries.forEach((legendary) => {
   else legendary.exists = false;
 });
 
-writeFileSync(`Legendaries.json`, JSON.stringify(legendaries, null, 2));
+writeFileSync(`Legendaries-${date}.json`, JSON.stringify(legendaries, null, 2));
