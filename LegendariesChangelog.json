@@ -1,0 +1,67 @@
+[
+    {
+        "date": "2023-10-18",
+        "changes": [
+            {
+                "name": "Yaorozu",
+                "seasons": [
+                    true,
+                    true,
+                    true
+                ],
+                "old": true,
+                "new": false
+            },
+            {
+                "name": "Fauxia",
+                "seasons": [
+                    false,
+                    false,
+                    true
+                ],
+                "old": false,
+                "new": true
+            }
+        ]
+    },
+    {
+        "date": "2023-10-17",
+        "changes": [
+            {
+                "name": "Frieden-und Freudenland",
+                "seasons": [
+                    false,
+                    true,
+                    true
+                ],
+                "old": false,
+                "new": true
+            },
+            {
+                "name": "United Calanworie",
+                "seasons": [
+                    false,
+                    false,
+                    true
+                ],
+                "old": true,
+                "new": false
+            }
+        ]
+    },
+    {
+        "date": "2023-10-15",
+        "changes": [
+            {
+                "name": "Sionis Prioratus",
+                "seasons": [
+                    true,
+                    false,
+                    false
+                ],
+                "old": true,
+                "new": false
+            }
+        ]
+    }
+]
