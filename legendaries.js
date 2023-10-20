@@ -4,7 +4,7 @@ import { XMLParser } from "fast-xml-parser";
 const parser = new XMLParser({ ignoreAttributes: false });
 
 const legendaries = JSON.parse(readFileSync("Legendaries.json"))
-const legendaries_data = JSON.parse(readFileSync("LegendariesData.json"))
+const legendaries_data = JSON.parse(readFileSync("LegendariesChangelog.json"))
 
 const currentDate = new Date();
 const utcMinus7Date = new Date(currentDate.getTime() - 7 * 60 * 60 * 1000);
@@ -35,4 +35,4 @@ legendaries.forEach((legendary) => {
 legendaries_data.unshift(legdata)
 
 writeFileSync(`Legendaries.json`, JSON.stringify(legendaries, null, 2));
-writeFileSync(`LegendariesData.json`, JSON.stringify(legendaries_data, null, 2));
+writeFileSync(`LegendariesChangelog.json`, JSON.stringify(legendaries_data, null, 2));
