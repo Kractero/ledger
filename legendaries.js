@@ -32,7 +32,8 @@ legendaries.forEach((legendary) => {
   }
   legendary.exists = exists;
 });
-legendaries_data.unshift(legdata)
+
+if (legdata.changes.length > 0) legendaries_data.unshift(legdata)
 
 writeFileSync(`Legendaries.json`, JSON.stringify(legendaries, null, 2));
 writeFileSync(`LegendariesChangelog.json`, JSON.stringify(legendaries_data, null, 2));
