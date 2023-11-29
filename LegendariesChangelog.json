@@ -1,5 +1,30 @@
 [
   {
+    "date": "2023-11-28",
+    "changes": [
+      {
+        "name": "Mallorea and Riva",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "G C Bakura",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2023-11-20",
     "changes": [
       {
