@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-06",
+    "changes": [
+      {
+        "name": "The Marsupial Illuminati",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2023-12-03",
     "changes": [
       {
