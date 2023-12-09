@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-08",
+    "changes": [
+      {
+        "name": "Kundu",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2023-12-06",
     "changes": [
       {
