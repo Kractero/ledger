@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-11",
+    "changes": [
+      {
+        "name": "Glen-Rhodes",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2023-12-10",
     "changes": [
       {
