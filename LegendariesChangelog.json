@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-13",
+    "changes": [
+      {
+        "name": "G C Bakura",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2023-12-12",
     "changes": [
       {
