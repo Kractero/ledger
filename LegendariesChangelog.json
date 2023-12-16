@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-15",
+    "changes": [
+      {
+        "name": "Teutionia",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2023-12-13",
     "changes": [
       {
