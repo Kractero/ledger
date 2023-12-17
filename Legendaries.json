@@ -77,7 +77,7 @@
     "S1": true,
     "S2": true,
     "S3": true,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Knootoss",
@@ -269,7 +269,7 @@
     "S1": true,
     "S2": true,
     "S3": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Goodnamesarerare",

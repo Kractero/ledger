@@ -1,5 +1,30 @@
 [
   {
+    "date": "2023-12-16",
+    "changes": [
+      {
+        "name": "SalusaSecondus",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "Kyrusia",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2023-12-15",
     "changes": [
       {
