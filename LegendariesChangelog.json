@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-20",
+    "changes": [
+      {
+        "name": "Candensia",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2023-12-19",
     "changes": [
       {
