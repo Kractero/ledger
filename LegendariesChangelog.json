@@ -1,5 +1,20 @@
 [
   {
+    "date": "2023-12-31",
+    "changes": [
+      {
+        "name": "Nation of Quebec",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2023-12-30",
     "changes": [
       {
