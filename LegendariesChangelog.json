@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-01-03",
+    "changes": [
+      {
+        "name": "DarthStassen",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Nation of Quebec",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2023-12-31",
     "changes": [
       {
