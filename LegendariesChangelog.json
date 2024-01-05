@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-01-04",
+    "changes": [
+      {
+        "name": "McMasterdonia",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-01-03",
     "changes": [
       {
