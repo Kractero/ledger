@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-01-14",
+    "changes": [
+      {
+        "name": "Teutionia",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Duxburian Union",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-01-04",
     "changes": [
       {

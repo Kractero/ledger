@@ -1605,7 +1605,7 @@
     "S2": true,
     "S1": false,
     "S3": true,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Sacara",
@@ -1949,7 +1949,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": true
+    "exists": false
   },
   {
     "name": "The Salaxalans",
