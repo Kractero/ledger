@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-01-16",
+    "changes": [
+      {
+        "name": "Duxburian Union",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-01-14",
     "changes": [
       {
