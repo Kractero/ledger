@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-01-24",
+    "changes": [
+      {
+        "name": "Honeydewistania",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-01-22",
     "changes": [
       {
