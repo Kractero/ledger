@@ -1,5 +1,40 @@
 [
   {
+    "date": "2024-02-01",
+    "changes": [
+      {
+        "name": "Lancaster of Wessex",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "The Free Joy State",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "The Marsupial Illuminati",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-01-30",
     "changes": [
       {
