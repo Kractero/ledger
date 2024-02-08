@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-02-07",
+    "changes": [
+      {
+        "name": "Davidianian",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-02-04",
     "changes": [
       {
