@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-02-12",
+    "changes": [
+      {
+        "name": "Canyamel",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-02-08",
     "changes": [
       {
