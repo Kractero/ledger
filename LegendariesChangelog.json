@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-02-16",
+    "changes": [
+      {
+        "name": "Uelvan",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-02-12",
     "changes": [
       {
