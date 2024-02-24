@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-02-23",
+    "changes": [
+      {
+        "name": "Dutchyland",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-02-19",
     "changes": [
       {
