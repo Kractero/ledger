@@ -1627,7 +1627,7 @@
     "name": "Caracasus",
     "id": "983809",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": false,
     "exists": false
   },
@@ -1635,7 +1635,7 @@
     "name": "USS Monitor",
     "id": "1062542",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1643,7 +1643,7 @@
     "name": "Frieden-und Freudenland",
     "id": "1085205",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1651,7 +1651,7 @@
     "name": "Pencil Sharpeners 2",
     "id": "1112157",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1659,7 +1659,7 @@
     "name": "Candlewhisper Archive",
     "id": "1120388",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1667,7 +1667,7 @@
     "name": "Notyoutopia",
     "id": "1149046",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1675,7 +1675,7 @@
     "name": "Milostein",
     "id": "1189918",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1691,7 +1691,7 @@
     "name": "Galway-Dublin",
     "id": "1227474",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1723,7 +1723,7 @@
     "name": "The Marsupial Illuminati",
     "id": "1583601",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1731,7 +1731,7 @@
     "name": "Helaw",
     "id": "1599020",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": false,
     "exists": true
   },
@@ -1739,7 +1739,7 @@
     "name": "Holy Oranz",
     "id": "1604334",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": false,
     "exists": false
   },
@@ -1747,7 +1747,7 @@
     "name": "Noahs Second Country",
     "id": "1633166",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
@@ -1755,7 +1755,7 @@
     "name": "Siwale",
     "id": "1812634",
     "S2": true,
-    "S1": false,
+    "S1": true,
     "S3": true,
     "exists": true
   },
