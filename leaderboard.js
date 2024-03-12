@@ -3,7 +3,7 @@ import { XMLParser } from 'fast-xml-parser';
 
 const parser = new XMLParser({ ignoreAttributes: false });
 function sleep() {
-	return new Promise((resolve) => setTimeout(resolve, 700));
+    return new Promise((resolve) => setTimeout(resolve, 700));
 }
 
 const top100names = []
@@ -13,7 +13,7 @@ for (let i = 0; i < 5; i++) {
         `https://www.nationstates.net/cgi-bin/api.cgi?q=censusranks&scale=86&start=${start}`,
         {
             headers: {
-                'User-Agent': "Kractero"
+                'User-Agent': "Kractero using Ledger by Kractero"
             }
         }
     );
@@ -30,11 +30,11 @@ for (let i = 0; i < top100names.length; i++) {
     const response = await fetch(
         'https://www.nationstates.net/cgi-bin/api.cgi/?nationname=' +
         top100names[i] +
-            '&q=cards+deck+info',
+        '&q=cards+deck+info',
         {
             method: 'GET',
             headers: {
-                'User-Agent': "Kractero"
+                'User-Agent': "Kractero using Ledger by Kractero"
             }
         }
     );
@@ -83,10 +83,10 @@ for (let i = 0; i < top100names.length; i++) {
         }
         deck['Junk Value'] =
             Number(((categoryCounts.Legendary || 0) * 1 +
-            (categoryCounts.Epic || 0) * 0.5 +
-            (categoryCounts.Common || 0) * 0.01 +
-            (categoryCounts.Uncommon || 0) * 0.05 +
-            (categoryCounts['Ultra-Rare'] || 0) * 0.2).toFixed(2));
+                (categoryCounts.Epic || 0) * 0.5 +
+                (categoryCounts.Common || 0) * 0.01 +
+                (categoryCounts.Uncommon || 0) * 0.05 +
+                (categoryCounts['Ultra-Rare'] || 0) * 0.2).toFixed(2));
 
         deck['Bank'] = xmlObj.CARDS.INFO.BANK;
         deck['Deck Value'] = xmlObj.CARDS.INFO.DECK_VALUE;
