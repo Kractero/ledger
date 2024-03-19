@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-03-18",
+    "changes": [
+      {
+        "name": "Sacara",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-03-15",
     "changes": [
       {
