@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-03-21",
+    "changes": [
+      {
+        "name": "Mallorea and Riva",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Sacara",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-03-19",
     "changes": [
       {
