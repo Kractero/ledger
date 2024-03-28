@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-03-27",
+    "changes": [
+      {
+        "name": "Kundu",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Golgothastan",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-03-23",
     "changes": [
       {

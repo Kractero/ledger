@@ -405,7 +405,7 @@
     "S1": true,
     "S2": true,
     "S3": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Complete Bastards",
@@ -2117,7 +2117,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Alistia",
