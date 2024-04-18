@@ -21,18 +21,19 @@ jobs:
         with:
           node-version: 18
           cache: npm
-          
+
       - name: Install dependencies
         run: npm install
-          
+
       - name: Run leaderboard.js
         env:
           SOME_SECRET: ${{ secrets.TOKEN }}
         run: |
           today=$(date +"%Y-%m-%d")
           node leaderboard.js
+          printf "\n%s" "$today" >> leaderboard.txt
           node legendaries.js
-          
+
       - name: Commit and Push JSON
         run: |
           git config --local user.email "actions@github.com"
@@ -41,9 +42,9 @@ jobs:
           git add "data/*.json"
           git commit -m "(${{ env.NOW }}) Update"
           git push
-          
+
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.TOKEN }}
-          branch: main 
+          branch: main

@@ -30,8 +30,12 @@
         const filePath = `https://raw.githubusercontent.com/Kractero/ledger/main/data/${fetchDate}.json`;
         const data = await fetch(filePath);
         if (data.status === 404) {
-          const previousDate = new Date();
-          previousDate.setDate(previousDate.getDate() - 1);
+          let previousDate = new Date();
+          if (fetchDate) {
+            previousDate.setDate(new Date(fetchDate).getDate() - 1)
+          } else {
+            previousDate.setDate(previousDate.getDate() - 1);
+          }
           await fillTable(previousDate.toISOString().slice(0, 10)); // Wait for the recursive call to complete
           return;
         }
