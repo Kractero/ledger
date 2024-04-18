@@ -7,7 +7,9 @@
 
   <body>
     <form>
-      <input value="" id="date" placeholder="YYYY-MM-DD" />
+      <select id="date">
+        <option value="" selected disabled>Choose a date</option>
+      </select>
       <button type="submit">Search Old Data</button>
     </form>
     <div class="content">
@@ -20,6 +22,18 @@
         e.preventDefault();
         fillTable(document.getElementById("date").value);
       });
+      async function fillDataList() {
+        const data = await fetch("https://raw.githubusercontent.com/Kractero/ledger/main/leaderboard.txt")
+        const dates = await data.text()
+        const lines = dates.split('\n').reverse()
+        const selectElement = document.getElementById('date');
+        lines.forEach(date => {
+          const option = document.createElement('option');
+          option.text = date.trim(); // Remove any leading/trailing whitespace
+          selectElement.appendChild(option);
+        });
+      }
+      fillDataList()
       async function fillTable(date) {
         let fetchDate = date;
         if (!fetchDate) {
