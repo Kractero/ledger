@@ -2,7 +2,6 @@
   <head>
     <title>Gold Ledger</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
   </head>
 
   <body>
@@ -46,7 +45,7 @@
         if (data.status === 404) {
           let previousDate = new Date();
           if (fetchDate) {
-            previousDate.setDate(new Date(fetchDate).getDate() - 1)
+            previousDate.setDate(new Date(fetchDate).getDate())
           } else {
             previousDate.setDate(previousDate.getDate() - 1);
           }
