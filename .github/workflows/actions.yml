@@ -31,7 +31,6 @@ jobs:
         run: |
           today=$(date +"%Y-%m-%d")
           node leaderboard.js
-          printf "\n%s" "$today" >> leaderboard.txt
           node legendaries.js
 
       - name: Commit and Push JSON
