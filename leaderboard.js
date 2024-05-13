@@ -111,3 +111,7 @@ const top100DataJson = JSON.stringify(top100Data, null, 2);
 const currentDate = new Date();
 const date = currentDate.toISOString().slice(0, 10);
 writeFileSync(`data/${date}.json`, top100DataJson);
+
+const existingDates = readFileSync('leaderboard.txt', 'utf8');
+const newContent = `${existingDates.trim()}\n${date}`;
+writeFileSync('leaderboard.txt', newContent);
