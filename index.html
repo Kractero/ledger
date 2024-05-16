@@ -34,6 +34,7 @@
       }
       fillDataList()
       async function fillTable(date) {
+        console.log(date)
         let fetchDate = date;
         if (!fetchDate) {
           fetchDate = new Date();
@@ -45,7 +46,7 @@
         if (data.status === 404) {
           let previousDate = new Date();
           if (fetchDate) {
-            previousDate.setDate(new Date(fetchDate).getDate())
+            previousDate.setDate(new Date(fetchDate).getDate() - 1)
           } else {
             previousDate.setDate(previousDate.getDate() - 1);
           }
