@@ -21,6 +21,10 @@
         e.preventDefault();
         fillTable(document.getElementById("date").value);
       });
+      const toggleHeadersButton = document.getElementById("toggleHeadersButton");
+      toggleHeadersButton.addEventListener("click", () => {
+        document.querySelectorAll(".hideable").forEach((el) => el.classList.toggle("hide"));
+      });
       async function fillDataList() {
         const data = await fetch("https://raw.githubusercontent.com/Kractero/ledger/main/leaderboard.txt")
         const dates = await data.text()
@@ -68,11 +72,6 @@
         hideableHeaders.forEach((header) => indexStr += `<th class='sort hideable hide' data-order='none'>${header}</th>`);
         indexStr += `</tr>`;
         index.innerHTML = indexStr;
-        const toggleHeadersButton = document.getElementById("toggleHeadersButton");
-        let additionalHeadersVisible = false;
-        toggleHeadersButton.addEventListener("click", () => {
-          document.querySelectorAll(".hideable").forEach((el) => el.classList.toggle("hide"));
-        });
         table.appendChild(index);
         json.forEach((deck) => {
           const row = document.createElement("tr");
