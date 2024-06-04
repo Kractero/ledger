@@ -1,5 +1,40 @@
 [
   {
+    "date": "2024-06-03",
+    "changes": [
+      {
+        "name": "Eta Carinae",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "The Rouge Christmas State",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "USS Monitor",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-06-01",
     "changes": [
       {
