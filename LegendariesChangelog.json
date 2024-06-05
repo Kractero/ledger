@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-06-04",
+    "changes": [
+      {
+        "name": "Cogitation",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "Eta Carinae",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-06-03",
     "changes": [
       {
