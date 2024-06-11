@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-06-10",
+    "changes": [
+      {
+        "name": "The Centauri",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "Frieden-und Freudenland",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-06-09",
     "changes": [
       {
