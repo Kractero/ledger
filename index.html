@@ -61,11 +61,11 @@
         const table = document.querySelector("table");
         table.innerHTML = "";
         const index = document.createElement("tr");
-        const validHeaders = ["Nation", "Deck Value", "Junk Value", "Bank", "Card Count", "Deck Capacity"];
+        const validHeaders = ["Nation", "Deck Value", "Junk Value", "Bank", "Card Count", "Deck Capacity", "S3 Legendary"];
         const hideableHeaders = [ "Common", "Uncommon", "Rare", "Ultra-Rare", "Epic", "Legendary", "S1", "S2", "S3",
           "S1 Common", "S1 Uncommon", "S1 Rare", "S1 Ultra-Rare", "S1 Epic", "S1 Legendary",
           "S2 Common", "S2 Uncommon", "S2 Rare", "S2 Ultra-Rare", "S2 Epic", "S2 Legendary",
-          "S3 Common", "S3 Uncommon", "S3 Rare", "S3 Ultra-Rare", "S3 Epic", "S3 Legendary",
+          "S3 Common", "S3 Uncommon", "S3 Rare", "S3 Ultra-Rare", "S3 Epic"
         ];
         let indexStr = `<th>#</th>`;
         validHeaders.forEach((header) => indexStr += `<th class='sort' data-order='none'>${header}</th>`);
@@ -79,16 +79,16 @@
           validHeaders.forEach((key) => {
             switch (key) {
               case "Deck Value" || "Bank":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/value_deck=1'>${deck[key]}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/value_deck=1'>${deck[key] ? deck[key] : 0}</a></td>`;
                 break;
               case "Card Count":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}'>${deck[key]}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}'>${deck[key] ? deck[key] : 0}</a></td>`;
                 break;
               case "Nation":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key]}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key] ? deck[key] : 0}</a></td>`;
                 break;
               default:
-                rowStr += `<td>${deck[key]}</td>`;
+                rowStr += `<td>${deck[key] ? deck[key] : 0}</td>`;
             }
           });
           hideableHeaders.forEach((key) => {
