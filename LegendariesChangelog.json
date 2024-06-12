@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-06-11",
+    "changes": [
+      {
+        "name": "The Centauri",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-06-10",
     "changes": [
       {
