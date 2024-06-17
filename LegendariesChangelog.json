@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-06-16",
+    "changes": [
+      {
+        "name": "Cogitation",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-06-15",
     "changes": [
       {
