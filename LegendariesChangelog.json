@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-06-19",
+    "changes": [
+      {
+        "name": "Mallorea and Riva",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-06-16",
     "changes": [
       {
