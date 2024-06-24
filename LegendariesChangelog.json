@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-06-23",
+    "changes": [
+      {
+        "name": "Territorio di Nessuno",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-06-19",
     "changes": [
       {
