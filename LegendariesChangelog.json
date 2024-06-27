@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-06-26",
+    "changes": [
+      {
+        "name": "Helaw",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Bears Armed Mission",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-06-23",
     "changes": [
       {

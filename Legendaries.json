@@ -1733,7 +1733,7 @@
     "S2": true,
     "S1": true,
     "S3": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Holy Oranz",
@@ -1981,7 +1981,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Kiasu-ism",
