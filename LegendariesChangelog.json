@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-06-28",
+    "changes": [
+      {
+        "name": "Ardchoille",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "Sionis Prioratus",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-06-26",
     "changes": [
       {

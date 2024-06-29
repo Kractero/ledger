@@ -197,7 +197,7 @@
     "S1": true,
     "S2": false,
     "S3": false,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Bears Armed",
@@ -669,7 +669,7 @@
     "S1": true,
     "S2": false,
     "S3": false,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Rubyna",
