@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-07-05",
+    "changes": [
+      {
+        "name": "Kuriko",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-07-02",
     "changes": [
       {
