@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-07-06",
+    "changes": [
+      {
+        "name": "Little Flowers",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-07-05",
     "changes": [
       {
