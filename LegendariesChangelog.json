@@ -1,5 +1,40 @@
 [
   {
+    "date": "2024-07-07",
+    "changes": [
+      {
+        "name": "Little Flowers",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Sionis Prioratus",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Kuriko",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-07-06",
     "changes": [
       {

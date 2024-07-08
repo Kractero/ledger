@@ -573,7 +573,7 @@
     "S1": true,
     "S2": true,
     "S3": true,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Cavallino33",
@@ -669,7 +669,7 @@
     "S1": true,
     "S2": false,
     "S3": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Rubyna",
@@ -2437,7 +2437,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Erynia and Draconia",
