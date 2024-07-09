@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-07-08",
+    "changes": [
+      {
+        "name": "Minskiev",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-07-07",
     "changes": [
       {
