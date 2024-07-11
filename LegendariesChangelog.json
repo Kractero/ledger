@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-07-10",
+    "changes": [
+      {
+        "name": "Sacara",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Honeydewistania",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-07-08",
     "changes": [
       {
