@@ -1,5 +1,50 @@
 [
   {
+    "date": "2024-07-15",
+    "changes": [
+      {
+        "name": "Ardchoille",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Davidianian",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "Daarwyrth",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Minskiev",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-07-10",
     "changes": [
       {

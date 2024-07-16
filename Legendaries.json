@@ -197,7 +197,7 @@
     "S1": true,
     "S2": false,
     "S3": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Bears Armed",
@@ -1997,7 +1997,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": true
+    "exists": false
   },
   {
     "name": "Trotterdam",
@@ -2293,7 +2293,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "ATLANTIARIV",
@@ -2581,7 +2581,7 @@
     "S3": true,
     "S1": false,
     "S2": false,
-    "exists": false
+    "exists": true
   },
   {
     "name": "Bankowiata",
