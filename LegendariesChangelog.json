@@ -1,5 +1,30 @@
 [
   {
+    "date": "2024-07-29",
+    "changes": [
+      {
+        "name": "Kundu",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      },
+      {
+        "name": "Teaberry",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-07-28",
     "changes": [
       {
