@@ -5,46 +5,39 @@
   </head>
 
   <body>
-    <form>
-      <select id="date">
-        <option value="" selected disabled>Choose a date</option>
-      </select>
-      <button type="submit">Search Old Data</button>
-    </form>
-    <div class="content">
-      <h2></h2>
+    <div class="controls">
+      <input type="date" id="dateInput" min="2023-10-05" />
       <button id="toggleHeadersButton">Toggle Additional Headers</button>
+    </div>
+    <div class="content">
       <table></table>
     </div>
     <script>
-      document.querySelector("form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        fillTable(document.getElementById("date").value);
+      const minDate = '2023-10-05';
+      const utcTime = new Date().getTime() + new Date().getTimezoneOffset() * 6000;
+      const maxDate = (new Date(utcTime + (-7 * 60) * 60000)).toISOString().slice(0, 10);
+
+      document.querySelector("input").addEventListener('change', async (event) => {
+        const selectedDate = event.target.value;
+        if (selectedDate && selectedDate >= '2023-10-05' && selectedDate < maxDate) {
+          await fillTable(selectedDate);
+        }
       });
       const toggleHeadersButton = document.getElementById("toggleHeadersButton");
       toggleHeadersButton.addEventListener("click", () => {
         document.querySelectorAll(".hideable").forEach((el) => el.classList.toggle("hide"));
+        document.querySelector(".content").classList.toggle("toggled");
       });
       async function fillDataList() {
         const data = await fetch("https://raw.githubusercontent.com/Kractero/ledger/main/leaderboard.txt")
         const dates = await data.text()
         const lines = dates.split('\n').reverse()
-        const selectElement = document.getElementById('date');
-        lines.forEach(date => {
-          const option = document.createElement('option');
-          option.text = date.trim(); // Remove any leading/trailing whitespace
-          selectElement.appendChild(option);
-        });
       }
       fillDataList()
-      async function fillTable(date) {
-        console.log(date)
-        let fetchDate = date;
-        if (!fetchDate) {
-          fetchDate = new Date();
-          fetchDate.setDate(fetchDate.getDate());
-          fetchDate = fetchDate.toISOString().slice(0, 10);
-        }
+
+      let fetchDate = dateInput.value || maxDate;
+      dateInput.value = fetchDate;
+      async function fillTable(fetchDate) {
         const filePath = `https://raw.githubusercontent.com/Kractero/ledger/main/data/${fetchDate}.json`;
         const data = await fetch(filePath);
         if (data.status === 404) {
@@ -105,7 +98,8 @@
           });
           row.innerHTML = rowStr;
           table.appendChild(row);
-          document.querySelector("h2").textContent = fetchDate;
+          document.querySelector("input").value = fetchDate;
+          document.querySelector("input").max = fetchDate;
         });
 
         const sortableColumns = document.querySelectorAll(".sort");
@@ -131,15 +125,20 @@
           });
         });
 
-        //  document.querySelectorAll("td").forEach(td => td.addEventListener('mouseover', (e) => {
-        //       e.currentTarget.parentNode.firstChild.style.backgroundColor = "beige";
-        //  }));
+        const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const highlightColor = prefersDarkMode ? '#333333' : 'silver';
 
-        //  document.querySelectorAll("td").forEach(td => td.addEventListener('mouseout', (e) => {
-        //   e.currentTarget.parentNode.firstChild.style.backgroundColor = "";
-        //  }));
+        document.querySelectorAll("td").forEach(td => {
+          td.addEventListener('mouseover', (e) => {
+            Array.from(e.currentTarget.parentNode.children).forEach(child => child.style.backgroundColor = highlightColor);
+          });
+
+          td.addEventListener('mouseout', (e) => {
+            Array.from(e.currentTarget.parentNode.children).forEach(child => child.style.backgroundColor = "");
+          });
+        });
       }
-      fillTable();
+      fillTable(maxDate);
     </script>
   </body>
 </html>

@@ -12,7 +12,6 @@
   :root {
     --background: black;
     --main-text: #c2c3c7;
-    --main-text: #c2c3c7;
     --link-text: #bbd2fc;
     --table-header: black;
     --table-header-bg: white;
@@ -32,13 +31,28 @@ body {
   display: none;
 }
 
+.controls {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   text-align: center;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
 }
 
-.content h2 {
+.toggled {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.content input {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -50,21 +64,16 @@ body {
   width: max-content;
   margin-top: 0px;
   margin-bottom: 1rem;
-  padding: 0.5rem;
-  background-color: #0ea5e9;
+  padding: 1rem;
+  background-color: rgb(38 38 38);
   border-radius: 0.5rem;
   border: none;
   transition: background-color 500ms;
-}
-
-@media (prefers-color-scheme: dark) {
-  #toggleHeadersButton {
-    color: white;
-  }
+  color: #c2c3c7;
 }
 
 #toggleHeadersButton:hover {
-  background-color: #7dd3fc;
+  opacity: 0.9;
 }
 
 table {
@@ -74,6 +83,7 @@ table {
   text-align: left;
   border-collapse: collapse;
   counter-reset: serial-number;
+  border-radius: 0.25rem;
 }
 
 table thead tr {
@@ -87,7 +97,7 @@ table td:first-child:before {
 
 table th {
   height: 48px;
-  padding: 1rem;
+  padding: 0.75rem;
   font-weight: 500;
   color: var(--table-header);
   background: var(--table-header-bg);
@@ -111,24 +121,33 @@ a:hover {
 }
 
 input {
-  width: 6rem;
+  font-family: "Open Sans", Arial, sans-serif;
   border: none;
   border-radius: 0.25rem;
   padding: 0.5rem;
   text-align: center;
   border: black solid 1px;
+  /* width: 12rem; */
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  background: none;
+  color: var(--main-text);
+  font-size: 1.5rem;
 }
 
-form button {
-  padding: 0.5rem;
-  background-color: #0ea5e9;
-  border-radius: 0.5rem;
-  border: none;
-  transition: background-color 500ms;
+input:hover {
+  text-decoration: underline;
+  animation: pulse 3s infinite;
 }
 
-select {
-  padding: 0.5rem;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @media only screen and (max-width: 760px),
