@@ -7,6 +7,7 @@
   <body>
     <div class="controls">
       <input type="date" id="dateInput" min="2023-10-05" />
+      <p class="error"></p>
       <button id="toggleHeadersButton">Toggle Additional Headers</button>
     </div>
     <div class="content">
@@ -41,15 +42,18 @@
         const filePath = `https://raw.githubusercontent.com/Kractero/ledger/main/data/${fetchDate}.json`;
         const data = await fetch(filePath);
         if (data.status === 404) {
+
           let previousDate = new Date();
           if (fetchDate) {
             previousDate.setDate(new Date(fetchDate).getDate() - 1)
           } else {
             previousDate.setDate(previousDate.getDate() - 1);
           }
-          await fillTable(previousDate.toISOString().slice(0, 10)); // Wait for the recursive call to complete
+          await fillTable(previousDate.toISOString().slice(0, 10));
+          document.querySelector('.error').textContent = `Date not found for ${fetchDate}, using ${previousDate.toISOString().slice(0, 10)}`
           return;
         }
+        document.querySelector('.error').textContent = '';
         const json = await data.json();
         const table = document.querySelector("table");
         table.innerHTML = "";

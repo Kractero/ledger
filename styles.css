@@ -27,6 +27,10 @@ body {
   background-color: var(--background);
 }
 
+.error {
+  text-align: center;
+}
+
 .hide {
   display: none;
 }
@@ -128,7 +132,6 @@ input {
   text-align: center;
   border: black solid 1px;
   /* width: 12rem; */
-  margin-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
   background: none;
