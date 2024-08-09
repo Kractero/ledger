@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-08-08",
+    "changes": [
+      {
+        "name": "Helaw",
+        "seasons": [
+          true,
+          true,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-08-07",
     "changes": [
       {
