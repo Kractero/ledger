@@ -79,10 +79,10 @@
           validHeaders.forEach((key) => {
             switch (key) {
               case "Deck Value" || "Bank":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/value_deck=1'>${deck[key] ? deck[key] : 0}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/value_deck=1'>${deck[key] ? deck[key] : 0}</a></td>`;
                 break;
               case "Card Count":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}'>${deck[key] ? deck[key] : 0}</a></td>`;
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key] ? deck[key] : 0}</a></td>`;
                 break;
               case "Nation":
                 rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key] ? deck[key] : 0}</a></td>`;
