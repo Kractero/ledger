@@ -2,8 +2,8 @@ import { readFileSync, writeFileSync } from "fs";
 import { XMLParser } from 'fast-xml-parser';
 
 const parser = new XMLParser({ ignoreAttributes: false });
-function sleep() {
-    return new Promise((resolve) => setTimeout(resolve, 700));
+function sleep(ms) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 const top100names = []
@@ -22,7 +22,14 @@ for (let i = 0; i < 5; i++) {
     xml.WORLD.CENSUSRANKS.NATIONS.NATION.forEach(nation => {
         top100names.push(nation.NAME)
     });;
-    await sleep();
+    const ratelimitRemaining = Number(response.headers.get("RateLimit-Remaining"));
+    const ratelimitReset = Number(response.headers.get("RateLimit-Reset"));
+
+    if (ratelimitRemaining > 0) {
+        await sleep((ratelimitReset / ratelimitRemaining) * 1000);
+    } else {
+        await sleep(ratelimitReset * 1000);
+    }
 }
 
 const top100Data = []
