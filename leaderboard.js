@@ -59,7 +59,7 @@ for (let i = 0; i < top100names.length; i++) {
     const categoryCounts = {};
     const seasonCounts = {};
     const categorySeasonCounts = {};
-    if (xmlObj.CARDS.DECK.CARD) {
+    if (xmlObj.CARDS.DECK && xmlObj.CARDS.DECK.CARD) {
         const deckObj = xmlObj.CARDS.DECK.CARD;
         for (let i = 0; i < deckObj.length; i++) {
             const category = deckObj[i].CATEGORY
