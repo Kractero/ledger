@@ -108,6 +108,8 @@ for (let i = 0; i < top100names.length; i++) {
     })
     top100Data.push(deck)
   }
+  const ratelimitRemaining = Number(response.headers.get('RateLimit-Remaining'))
+  const ratelimitReset = Number(response.headers.get('RateLimit-Reset'))
   if (ratelimitRemaining > 0) {
     await sleep((ratelimitReset / ratelimitRemaining) * 1000)
   } else {
