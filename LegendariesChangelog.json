@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-08-19",
+    "changes": [
+      {
+        "name": "Tremalkier",
+        "seasons": [
+          true,
+          false,
+          false
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-08-17",
     "changes": [
       {
