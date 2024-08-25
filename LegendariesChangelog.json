@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-08-24",
+    "changes": [
+      {
+        "name": "SalusaSecondus",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-08-21",
     "changes": [
       {
