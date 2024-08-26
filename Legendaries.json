@@ -1664,6 +1664,14 @@
     "exists": true
   },
   {
+    "name": "Solborg",
+    "id": "1174373",
+    "S2": false,
+    "S1": true,
+    "S3": false,
+    "exists": false
+  },
+  {
     "name": "Notyoutopia",
     "id": "1149046",
     "S2": true,
@@ -1702,6 +1710,14 @@
     "S1": false,
     "S3": true,
     "exists": true
+  },
+  {
+    "name": "Queen Yuno",
+    "id": "1262891",
+    "S2": false,
+    "S1": true,
+    "S3": false,
+    "exists": false
   },
   {
     "name": "Choistan",
