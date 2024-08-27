@@ -1,5 +1,40 @@
 [
   {
+    "date": "2024-08-26",
+    "changes": [
+      {
+        "name": "Kandarin",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Teutionia",
+        "seasons": [
+          false,
+          true,
+          true
+        ],
+        "old": false,
+        "new": true
+      },
+      {
+        "name": "Frieden-und Freudenland",
+        "seasons": [
+          true,
+          true,
+          true
+        ],
+        "old": true,
+        "new": false
+      }
+    ]
+  },
+  {
     "date": "2024-08-25",
     "changes": [
       {
