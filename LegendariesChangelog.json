@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-08-28",
+    "changes": [
+      {
+        "name": "Bears Armed Mission",
+        "seasons": [
+          false,
+          false,
+          true
+        ],
+        "old": false,
+        "new": true
+      }
+    ]
+  },
+  {
     "date": "2024-08-27",
     "changes": [
       {
