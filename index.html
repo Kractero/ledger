@@ -14,138 +14,176 @@
       <table></table>
     </div>
     <footer>
-      <p style="text-align: center; margin-bottom: 3rem;">The oldest tracked date is 2023-10-05.</p>
+      <p style="text-align: center; margin-bottom: 3rem">The oldest tracked date is 2023-10-05.</p>
     </footer>
     <script>
-      const minDate = '2023-10-05';
-      const utcTime = new Date().getTime() + new Date().getTimezoneOffset() * 6000;
-      const maxDate = (new Date(utcTime + (-7 * 60) * 60000)).toISOString().slice(0, 10);
+      const minDate = '2023-10-05'
+      fetch('https://raw.githubusercontent.com/Kractero/ledger/main/leaderboard.txt')
+        .then(response => response.text())
+        .then(dates => {
+          const lines = dates.split('\n').reverse()
+          maxDate = lines[0]
+          fillTable(maxDate)
+          document.querySelector('#dateInput').max = maxDate
+        })
+        .catch(error => {
+          console.error('Error fetching date data:', error)
+          document.querySelector('.error').textContent = 'Failed to fetch the latest date.'
+        })
 
-      document.querySelector("input").addEventListener('change', async (event) => {
-        const selectedDate = event.target.value;
+      document.querySelector('input').addEventListener('change', async event => {
+        const selectedDate = event.target.value
         if (selectedDate && selectedDate >= '2023-10-05' && selectedDate <= maxDate) {
-          await fillTable(selectedDate);
+          await fillTable(selectedDate)
         }
-      });
-      const toggleHeadersButton = document.getElementById("toggleHeadersButton");
-      toggleHeadersButton.addEventListener("click", () => {
-        document.querySelectorAll(".hideable").forEach((el) => el.classList.toggle("hide"));
-        document.querySelector(".content").classList.toggle("toggled");
-      });
-      async function fillDataList() {
-        const data = await fetch("https://raw.githubusercontent.com/Kractero/ledger/main/leaderboard.txt")
-        const dates = await data.text()
-        const lines = dates.split('\n').reverse()
-      }
-      fillDataList()
+      })
+      const toggleHeadersButton = document.getElementById('toggleHeadersButton')
+      toggleHeadersButton.addEventListener('click', () => {
+        document.querySelectorAll('.hideable').forEach(el => el.classList.toggle('hide'))
+        document.querySelector('.content').classList.toggle('toggled')
+      })
 
-      let fetchDate = dateInput.value || maxDate;
-      dateInput.value = fetchDate;
       async function fillTable(fetchDate) {
-        const filePath = `https://raw.githubusercontent.com/Kractero/ledger/main/data/${fetchDate}.json`;
-        const data = await fetch(filePath);
-        if (data.status === 404) {
-
-          let previousDate = new Date();
-          if (fetchDate) {
-            previousDate.setDate(new Date(fetchDate).getDate() - 1)
-          } else {
-            previousDate.setDate(previousDate.getDate() - 1);
-          }
-          await fillTable(previousDate.toISOString().slice(0, 10));
-          document.querySelector('.error').textContent = `Date not found for ${fetchDate}, using ${previousDate.toISOString().slice(0, 10)}`
-          return;
-        }
-        document.querySelector('.error').textContent = '';
-        const json = await data.json();
-        const table = document.querySelector("table");
-        table.innerHTML = "";
-        const index = document.createElement("tr");
-        const validHeaders = ["Nation", "Deck Value", "Junk Value", "Bank", "Card Count", "Deck Capacity", "S3 Legendary"];
-        const hideableHeaders = [ "Common", "Uncommon", "Rare", "Ultra-Rare", "Epic", "Legendary", "S1", "S2", "S3",
-          "S1 Common", "S1 Uncommon", "S1 Rare", "S1 Ultra-Rare", "S1 Epic", "S1 Legendary",
-          "S2 Common", "S2 Uncommon", "S2 Rare", "S2 Ultra-Rare", "S2 Epic", "S2 Legendary",
-          "S3 Common", "S3 Uncommon", "S3 Rare", "S3 Ultra-Rare", "S3 Epic"
-        ];
-        let indexStr = `<th>#</th>`;
-        validHeaders.forEach((header) => indexStr += `<th class='sort' data-order='none'>${header}</th>`);
-        hideableHeaders.forEach((header) => indexStr += `<th class='sort hideable hide' data-order='none'>${header}</th>`);
-        indexStr += `</tr>`;
-        index.innerHTML = indexStr;
-        table.appendChild(index);
-        json.forEach((deck) => {
-          const row = document.createElement("tr");
-          let rowStr = `<tr><td></td>`;
-          validHeaders.forEach((key) => {
+        const filePath = `https://raw.githubusercontent.com/Kractero/ledger/main/data/${fetchDate}.json`
+        const data = await fetch(filePath)
+        document.querySelector('.error').textContent = ''
+        const json = await data.json()
+        const table = document.querySelector('table')
+        table.innerHTML = ''
+        const index = document.createElement('tr')
+        const validHeaders = [
+          'Nation',
+          'Deck Value',
+          'Junk Value',
+          'Bank',
+          'Card Count',
+          'Deck Capacity',
+          'S3 Legendary',
+        ]
+        const hideableHeaders = [
+          'Common',
+          'Uncommon',
+          'Rare',
+          'Ultra-Rare',
+          'Epic',
+          'Legendary',
+          'S1',
+          'S2',
+          'S3',
+          'S1 Common',
+          'S1 Uncommon',
+          'S1 Rare',
+          'S1 Ultra-Rare',
+          'S1 Epic',
+          'S1 Legendary',
+          'S2 Common',
+          'S2 Uncommon',
+          'S2 Rare',
+          'S2 Ultra-Rare',
+          'S2 Epic',
+          'S2 Legendary',
+          'S3 Common',
+          'S3 Uncommon',
+          'S3 Rare',
+          'S3 Ultra-Rare',
+          'S3 Epic',
+        ]
+        let indexStr = `<th>#</th>`
+        validHeaders.forEach(header => (indexStr += `<th class='sort' data-order='none'>${header}</th>`))
+        hideableHeaders.forEach(
+          header => (indexStr += `<th class='sort hideable hide' data-order='none'>${header}</th>`)
+        )
+        indexStr += `</tr>`
+        index.innerHTML = indexStr
+        table.appendChild(index)
+        json.forEach(deck => {
+          const row = document.createElement('tr')
+          let rowStr = `<tr><td></td>`
+          validHeaders.forEach(key => {
             switch (key) {
-              case "Deck Value" || "Bank":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/value_deck=1'>${deck[key] ? deck[key] : 0}</a></td>`;
-                break;
-              case "Card Count":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key] ? deck[key] : 0}</a></td>`;
-                break;
-              case "Nation":
-                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${deck[key] ? deck[key] : 0}</a></td>`;
-                break;
+              case 'Deck Value' || 'Bank':
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${
+                  deck.Nation
+                }/page=deck/value_deck=1'>${deck[key] ? deck[key] : 0}</a></td>`
+                break
+              case 'Card Count':
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${
+                  deck[key] ? deck[key] : 0
+                }</a></td>`
+                break
+              case 'Nation':
+                rowStr += `<td><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck'>${
+                  deck[key] ? deck[key] : 0
+                }</a></td>`
+                break
               default:
-                rowStr += `<td>${deck[key] ? deck[key] : 0}</td>`;
+                rowStr += `<td>${deck[key] ? deck[key] : 0}</td>`
             }
-          });
-          hideableHeaders.forEach((key) => {
+          })
+          hideableHeaders.forEach(key => {
             if (Object.keys(deck).includes(key)) {
-              if (key.includes("S") && !key.includes(" ")) {
-                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/?filter=${key.replace("S", "season-")}'>${deck[key]}</a></td class="hideable hide">`;
-              } else if (key.includes(" ")) {
-                let adjKey = key.split(" ");
-                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/?filter=${adjKey[0].replace("S","season-")}+${adjKey[1].toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
-              } else if (!key.includes("S")) {
-                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${deck.Nation}/page=deck/?filter=${key.toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`;
+              if (key.includes('S') && !key.includes(' ')) {
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${
+                  deck.Nation
+                }/page=deck/?filter=${key.replace('S', 'season-')}'>${deck[key]}</a></td class="hideable hide">`
+              } else if (key.includes(' ')) {
+                let adjKey = key.split(' ')
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${
+                  deck.Nation
+                }/page=deck/?filter=${adjKey[0].replace('S', 'season-')}+${adjKey[1].toLowerCase()}'>${
+                  deck[key]
+                }</a></td class="hideable hide">`
+              } else if (!key.includes('S')) {
+                rowStr += `<td class="hideable hide"><a target='_blank' href='https://www.nationstates.net/nation=${
+                  deck.Nation
+                }/page=deck/?filter=${key.toLowerCase()}'>${deck[key]}</a></td class="hideable hide">`
               }
-            } else rowStr += `<td class="hideable hide">0</td>`;
-          });
-          row.innerHTML = rowStr;
-          table.appendChild(row);
-          document.querySelector("input").value = fetchDate;
-          document.querySelector("input").max = fetchDate;
-        });
+            } else rowStr += `<td class="hideable hide">0</td>`
+          })
+          row.innerHTML = rowStr
+          table.appendChild(row)
+          document.querySelector('input').value = fetchDate
+          document.querySelector('input').max = fetchDate
+        })
 
-        const sortableColumns = document.querySelectorAll(".sort");
-        sortableColumns.forEach((col) => {
-          col.addEventListener("click", () => {
-            const table = document.querySelector("table");
-            const columnIndex = Array.from(col.parentNode.cells).indexOf(col);
-            const rows = Array.from(table.rows).slice(1);
-            const currentOrder = col.getAttribute("data-order");
-            const newOrder = currentOrder === "asc" ? "desc" : "asc";
+        const sortableColumns = document.querySelectorAll('.sort')
+        sortableColumns.forEach(col => {
+          col.addEventListener('click', () => {
+            const table = document.querySelector('table')
+            const columnIndex = Array.from(col.parentNode.cells).indexOf(col)
+            const rows = Array.from(table.rows).slice(1)
+            const currentOrder = col.getAttribute('data-order')
+            const newOrder = currentOrder === 'asc' ? 'desc' : 'asc'
             rows.sort((a, b) => {
-              const aValue = parseFloat(a.cells[columnIndex].innerText);
-              const bValue = parseFloat(b.cells[columnIndex].innerText);
-              if (currentOrder === "asc" && currentOrder !== "none") {
-                return aValue > bValue ? 1 : aValue === bValue ? 0 : -1;
+              const aValue = parseFloat(a.cells[columnIndex].innerText)
+              const bValue = parseFloat(b.cells[columnIndex].innerText)
+              if (currentOrder === 'asc' && currentOrder !== 'none') {
+                return aValue > bValue ? 1 : aValue === bValue ? 0 : -1
               } else {
-                return aValue > bValue ? -1 : aValue === bValue ? 0 : 1;
+                return aValue > bValue ? -1 : aValue === bValue ? 0 : 1
               }
-              return aValue > bValue ? 1 : aValue === bValue ? 0 : -1;
-            });
-            table.append(...rows);
-            col.setAttribute("data-order", newOrder);
-          });
-        });
+              return aValue > bValue ? 1 : aValue === bValue ? 0 : -1
+            })
+            table.append(...rows)
+            col.setAttribute('data-order', newOrder)
+          })
+        })
 
-        const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const highlightColor = prefersDarkMode ? '#333333' : 'silver';
+        const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        const highlightColor = prefersDarkMode ? '#333333' : 'silver'
 
-        document.querySelectorAll("td").forEach(td => {
-          td.addEventListener('mouseover', (e) => {
-            Array.from(e.currentTarget.parentNode.children).forEach(child => child.style.backgroundColor = highlightColor);
-          });
+        document.querySelectorAll('td').forEach(td => {
+          td.addEventListener('mouseover', e => {
+            Array.from(e.currentTarget.parentNode.children).forEach(
+              child => (child.style.backgroundColor = highlightColor)
+            )
+          })
 
-          td.addEventListener('mouseout', (e) => {
-            Array.from(e.currentTarget.parentNode.children).forEach(child => child.style.backgroundColor = "");
-          });
-        });
+          td.addEventListener('mouseout', e => {
+            Array.from(e.currentTarget.parentNode.children).forEach(child => (child.style.backgroundColor = ''))
+          })
+        })
       }
-      fillTable(maxDate);
     </script>
   </body>
 </html>
